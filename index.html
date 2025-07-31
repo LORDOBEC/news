@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ประกาศการได้เกียรติบัตร</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .star {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.7);
+            animation: twinkle 2s infinite alternate;
+        }
+
+        .star:nth-child(1) { top: 10%; left: 10%; font-size: 20px; animation-delay: 0s; }
+        .star:nth-child(2) { top: 20%; right: 15%; font-size: 16px; animation-delay: 0.5s; }
+        .star:nth-child(3) { top: 60%; left: 5%; font-size: 24px; animation-delay: 1s; }
+        .star:nth-child(4) { bottom: 20%; right: 10%; font-size: 18px; animation-delay: 1.5s; }
+        .star:nth-child(5) { top: 40%; left: 80%; font-size: 22px; animation-delay: 2s; }
+
+        @keyframes twinkle {
+            0% { opacity: 0.3; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .main-container {
+            position: relative;
+            z-index: 3;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            padding: 80px 50px;
+            max-width: 1000px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #667eea);
+            border-radius: 32px;
+            z-index: -1;
+            animation: rotate-border 4s linear infinite;
+        }
+
+        @keyframes rotate-border {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .header {
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .crown {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+            animation: crown-bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes crown-bounce {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+        }
+
+        .title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff 0%, #f8f9ff 50%, #fff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .divider {
+            width: 150px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+            margin: 40px auto;
+            border-radius: 2px;
+            position: relative;
+        }
+
+        .divider::before {
+            content: '✦';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -60%);
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            padding: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .rooms-container {
+            display: flex;
+            gap: 50px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .room-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 50px 35px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            min-width: 320px;
+            max-width: 380px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .room-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        .room-card:hover::before {
+            left: 100%;
+        }
+
+        .room-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .flag-container {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .room-flag {
+            font-size: 4rem;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+            animation: flag-wave 3s ease-in-out infinite;
+        }
+
+        @keyframes flag-wave {
+            0%, 100% { transform: rotate(-10deg) scale(1); }
+            50% { transform: rotate(10deg) scale(1.1); }
+        }
+
+        .room-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .room-description {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .access-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .access-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transition: all 0.4s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .room-card:hover .access-btn::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .room-card:hover .access-btn {
+            border-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+        }
+
+        .chinese {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.2) 0%, rgba(238, 90, 36, 0.2) 100%);
+            border-color: rgba(255, 107, 107, 0.3);
+        }
+
+        .chinese:hover {
+            box-shadow: 0 25px 50px rgba(255, 107, 107, 0.3);
+        }
+
+        .english {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.2) 0%, rgba(0, 160, 133, 0.2) 100%);
+            border-color: rgba(78, 205, 196, 0.3);
+        }
+
+        .english:hover {
+            box-shadow: 0 25px 50px rgba(78, 205, 196, 0.3);
+        }
+
+        .footer {
+            margin-top: 70px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .congratulations {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-weight: 400;
+        }
+
+        .trophy {
+            font-size: 1.5rem;
+            animation: trophy-glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes trophy-glow {
+            0% { filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5)); }
+            100% { filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8)); }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 50px 30px;
+                margin: 20px;
+            }
+            
+            .title {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .rooms-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+            }
+            
+            .room-card {
+                min-width: 280px;
+                max-width: 320px;
+                padding: 40px 25px;
+            }
+            
+            .room-flag {
+                font-size: 3rem;
+            }
+            
+            .room-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .crown {
+                font-size: 3rem;
+            }
+            
+            .title {
+                font-size: 2rem;
+                letter-spacing: 1px;
+            }
+            
+            .container {
+                padding: 40px 20px;
+            }
+        }
+
+        /* Particle effect */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: float-particle 6s infinite linear;
+        }
+
+        @keyframes float-particle {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="star">✦</div>
+        <div class="star">✧</div>
+        <div class="star">✦</div>
+        <div class="star">✧</div>
+        <div class="star">✦</div>
+    </div>
+
+    <div class="main-container">
+        <div class="container">
+            <div class="header">
+                <div class="crown">👑</div>
+                <h1 class="title">ประกาศการได้เกียรติบัตร</h1>
+                <p class="subtitle">ห้องอบรมภาษา • Language Training Certificates</p>
+                <div class="divider"></div>
+            </div>
+
+            <div class="rooms-container">
+                <a href="https://drive.google.com/drive/folders/1yTmQVSdzn-pCOHvt2eXGLoxa8BzhIbOK?usp=sharing" class="room-card chinese" target="_blank">
+                    <div class="flag-container">
+                        <div class="room-flag">🇨🇳</div>
+                    </div>
+                    <h2 class="room-title">ห้องอบรมภาษาจีน</h2>
+                    <p class="room-description">ดูเกียรติบัตรของผู้เข้าร่วมอบรมภาษาจีน<br>พร้อมเอกสารที่เกี่ยวข้อง</p>
+                    <div class="btn-container">
+                        <div class="access-btn">📁 เข้าดูเกียรติบัตร</div>
+                    </div>
+                </a>
+
+                <a href="https://drive.google.com/drive/folders/1CClCcICZ8V_V9w0Clt7GiGerwYyNvDe0?usp=sharing" class="room-card english" target="_blank">
+                    <div class="flag-container">
+                        <div class="room-flag">🇺🇸</div>
+                    </div>
+                    <h2 class="room-title">ห้องอบรมภาษาอังกฤษ</h2>
+                    <p class="room-description">ดูเกียรติบัตรของผู้เข้าร่วมอบรมภาษาอังกฤษ<br>พร้อมเอกสารที่เกี่ยวข้อง</p>
+                    <div class="btn-container">
+                        <div class="access-btn">📁 เข้าดูเกียรติบัตร</div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="footer">
+                <div class="congratulations">
+                    <span class="trophy">🏆</span>
+                    <span>ขอแสดงความยินดีกับผู้ที่ได้รับเกียรติบัตรทุกท่าน</span>
+                    <span class="trophy">🏆</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create floating particles
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.animationDelay = Math.random() * 6 + 's';
+            particle.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            document.body.appendChild(particle);
+
+            setTimeout(() => {
+                particle.remove();
+            }, 8000);
+        }
+
+        // Create particles periodically
+        setInterval(createParticle, 300);
+
+        // Add smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
